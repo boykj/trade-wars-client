@@ -1,0 +1,13 @@
+body {
+  background-image: url("http://7-themes.com/data_images/out/67/7000782-planet-space-stars.jpg");
+}
+
+
+
+#page1 .myDiv {
+border: 1px solid green;
+}
+
+#page2 .myDiv {
+border: 1px solid red;
+}
