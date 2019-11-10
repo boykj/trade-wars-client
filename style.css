@@ -1,13 +1,27 @@
 body {
-  background-image: url("https://i.imgur.com/e8bMcGx.jpg");
+	background-image: url("https://i.imgur.com/e8bMcGx.jpg");
 }
 
-
-
-#page1 .myDiv {
-border: 1px solid green;
+#page1 
+h1 {
+	text-align:center;
+	color: white;
+}
+h3 {
+	color: white;
+}
+br{
+	color: white;
 }
 
-#page2 .myDiv {
-border: 1px solid red;
+#page2 
+
+table {
+	border: 2px solid #dddddd;
 }
+
+td{
+	border: 1px solid gray;
+
+}
+
