@@ -3,16 +3,14 @@ body {
 }
 
 #page1 
+
+body{
+	color: #C0C0C0;
+}
 h1 {
 	text-align:center;
-	color: white;
 }
-h3 {
-	color: white;
-}
-br{
-	color: white;
-}
+
 
 #page2 
 
