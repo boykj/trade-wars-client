@@ -15,11 +15,13 @@ h1 {
 #page2 
 
 table {
-	border: 2px solid #dddddd;
+	border: 3px solid white;
 }
 
 td{
 	border: 1px solid gray;
+	width: 50%;
+	height: 50%;
 
 }
 
