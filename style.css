@@ -14,16 +14,22 @@ h1 {
 
 #page2 
 
+input{
+	float: right;
+	margin-right: 10%
+}
+
 table {
 	border: 3px solid white;
 }
 
 td{
 	border: 1px solid gray;
-	width: 50%;
-	height: 50%;
+	width: 70px;
+	height: 70px;
 
 }
+
 
 #page3
 
