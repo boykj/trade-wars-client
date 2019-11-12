@@ -20,7 +20,9 @@ input{
 }
 
 table.map {
+	background-color: black;
 	border: 3px solid white;
+
 }
 
 table.map td{
@@ -31,6 +33,7 @@ table.map td{
 }
 
 table.sidebar {
+	background-color: black;
 	color: #C0C0C0;
 	margin-top: -45%;
 	border: 3px solid white;
@@ -57,4 +60,32 @@ h1 {
 
 p {
 	color: #C0C0C0;	
+}
+
+
+#page4
+
+table.myGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	margin-top: 5%;
+}
+
+table.myGoods td{
+	width: 200px;
+	height: 70px;
+}
+
+table.theirGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	float: right;
+	margin-top: -33%;
+}
+
+table.theirGoods td{
+	width: 200px;
+	height: 70px;
 }
