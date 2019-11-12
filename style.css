@@ -19,16 +19,29 @@ input{
 	margin-right: 10%
 }
 
-table {
+table.map {
 	border: 3px solid white;
 }
 
-td{
+table.map td{
+	color: #C0C0C0;
 	border: 1px solid gray;
 	width: 70px;
 	height: 70px;
-
 }
+
+table.sidebar {
+	color: #C0C0C0;
+	margin-top: -45%;
+	border: 3px solid white;
+	float: right;
+}
+
+table.sidebar td{
+	width: 200px;
+	height: 70px;
+}
+
 
 
 #page3
