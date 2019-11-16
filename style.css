@@ -1,38 +1,54 @@
 body {
-	background-image: url("https://i.imgur.com/e8bMcGx.jpg");
+	background-image: url("https://i.imgur.com/mzgI4aI.jpg");
 }
 
 #page1 
 
-body{
+body {
 	color: #C0C0C0;
-}
-h1 {
-	text-align:center;
 }
 
 
 #page2 
+
+
 
 input{
 	float: right;
 	margin-right: 10%
 }
 
-table {
+table.map {
+	background-color: black;
 	border: 3px solid white;
+
 }
 
-td{
+table.map td{
+	color: #C0C0C0;
 	border: 1px solid gray;
 	width: 70px;
 	height: 70px;
-
 }
+
+table.sidebar {
+	background-color: black;
+	color: #C0C0C0;
+	margin-top: -45%;
+	border: 3px solid white;
+	float: right;
+}
+
+table.sidebar td{
+	width: 200px;
+	height: 70px;
+}
+
 
 
 #page3
 
+background-image: url("https://i.imgur.com/mzgI4aI.jpg");
 body {
 	color: #C0C0C0;
 }
@@ -44,4 +60,32 @@ h1 {
 
 p {
 	color: #C0C0C0;	
+}
+
+
+#page4
+
+table.myGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	margin-top: 5%;
+}
+
+table.myGoods td{
+	width: 200px;
+	height: 70px;
+}
+
+table.theirGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	float: right;
+	margin-top: -33%;
+}
+
+table.theirGoods td{
+	width: 200px;
+	height: 70px;
 }
