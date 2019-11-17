@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
+	"fmt"
+	"strconv"
 )
 
 func home (w http.ResponseWriter, r *http.Request) {
@@ -10,12 +12,12 @@ func home (w http.ResponseWriter, r *http.Request) {
 }
 
 func showSnippet(w http.ResponseWriter, r *http.Request) {
-	id, err := strconv.Atoi(r.URL>Query().Get("id"))
+	id, err := strconv.Atoi(r.URL.Query().Get("id"))
 	if err != nil || id < 1 {
 		http.NotFound(w, r)
 		return
 	}
-	w.Write([]byte("Display a specific snippet..."))
+	fmt.Fprintf(w, "Display a specific snippet with ID %d...", id)
 }
 
 func createSnippet(w http.ResponseWriter, r *http.Request) {
