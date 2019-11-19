@@ -1,0 +1,87 @@
+body.chat{background-image :url("https://i.imgur.com/e8bMcGx.jpg");}
+body.trade{background-image :url("https://cdn.dodowallpaper.com/full/619/spaceport-wallpapers-21.jpg");}
+body.game{background-image :url("https://wallpapers.gry-online.pl/pliki/66205/1920x1080.jpg");}
+
+body {
+	background-image: url("https://i.imgur.com/mzgI4aI.jpg");
+}
+
+#home
+
+#game
+
+input{
+	float: right;
+	margin-right: 10%
+}
+
+table.map {
+	background-color: black;
+	border: 3px solid white;
+
+}
+
+table.map td{
+	color: #C0C0C0;
+	border: 1px solid gray;
+	width: 70px;
+	height: 70px;
+}
+
+table.sidebar {
+	background-color: black;
+	color: #C0C0C0;
+	margin-top: -45%;
+	border: 3px solid white;
+	float: right;
+}
+
+table.sidebar td{
+	width: 200px;
+	height: 70px;
+}
+
+
+
+#chat
+
+body {
+	color: #C0C0C0;
+}
+
+h1 {
+	text-align:left;
+	color: #C0C0C0;
+}
+
+p {
+	color: #C0C0C0;	
+}
+
+
+#trade
+
+table.myGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	margin-top: 5%;
+}
+
+table.myGoods td{
+	width: 200px;
+	height: 70px;
+}
+
+table.theirGoods {
+	background-color: black;
+	color: #C0C0C0;
+	border: 3px solid white;
+	float: right;
+	margin-top: -33%;
+}
+
+table.theirGoods td{
+	width: 200px;
+	height: 70px;
+}
