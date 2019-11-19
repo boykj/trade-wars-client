@@ -1,17 +1,14 @@
+body.chat{background-image :url("https://i.imgur.com/e8bMcGx.jpg");}
+
 body {
 	background-image: url("https://i.imgur.com/mzgI4aI.jpg");
 }
 
-#page1 
+#home
 
-body {
-	color: #C0C0C0;
-}
 
 
 #page2 
-
-
 
 input{
 	float: right;
@@ -46,7 +43,7 @@ table.sidebar td{
 
 
 
-#page3
+#chat
 
 body {
 	color: #C0C0C0;
