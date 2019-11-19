@@ -4,6 +4,8 @@ import (
     "fmt"        
     "net/http"
     "strconv"
+    "log"
+    "html/template"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
