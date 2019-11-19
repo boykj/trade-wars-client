@@ -8,7 +8,7 @@ import (
 )
 
 func home (w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello from Snippetbox"))
+	w.Write([]byte("Trade wars base template"))
 }
 
 func showSnippet(w http.ResponseWriter, r *http.Request) {
