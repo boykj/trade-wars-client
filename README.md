@@ -14,5 +14,8 @@ https://wallpapers.gry-online.pl/pliki/66205/1920x1080.jpg
 ### Tutorials for basic HTML Chat/Login:
 https://code.tutsplus.com/tutorials/how-to-create-a-simple-web-based-chat-application--net-5931
 
+### GO Foundations:
+https://lets-go.alexedwards.net/sample/02.00-foundations.html
+
 
 
