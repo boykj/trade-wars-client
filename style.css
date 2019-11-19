@@ -1,5 +1,6 @@
 body.chat{background-image :url("https://i.imgur.com/e8bMcGx.jpg");}
-body.trade{background-image :url("https://wallpapers.gry-online.pl/pliki/66205/1920x1080.jpg");}
+body.trade{background-image :url("https://cdn.dodowallpaper.com/full/619/spaceport-wallpapers-21.jpg");}
+body.game{background-image :url("https://wallpapers.gry-online.pl/pliki/66205/1920x1080.jpg");}
 
 body {
 	background-image: url("https://i.imgur.com/mzgI4aI.jpg");
@@ -7,9 +8,7 @@ body {
 
 #home
 
-
-
-#page2 
+#game
 
 input{
 	float: right;
