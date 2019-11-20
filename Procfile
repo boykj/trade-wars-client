@@ -1,1 +1,1 @@
-web: bin/morning-ravine-14605
+web: bin/trade-wars-client
