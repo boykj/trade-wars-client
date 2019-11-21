@@ -17,5 +17,9 @@ https://code.tutsplus.com/tutorials/how-to-create-a-simple-web-based-chat-applic
 ### GO Foundations:
 https://lets-go.alexedwards.net/sample/02.00-foundations.html
 
+### GO Web Formatting (TMPL)
+https://gowebexamples.com/templates/
+
+
 
 
