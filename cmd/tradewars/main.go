@@ -17,6 +17,6 @@ func main() {
 	godotenv.Load()
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	err := http.ListenAndServe(";"+PORT, mux)
+	err := http.ListenAndServe(":"+PORT, mux)
 	log.Fatal(err)
 }
