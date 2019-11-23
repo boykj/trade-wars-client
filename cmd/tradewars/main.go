@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -11,11 +13,10 @@ func main() {
 	mux.HandleFunc("/snippet", showSnippet)
 	mux.HandleFunc("/snippet/create", createSnippet)
 
-    fileServer := http.FileServer(http.Dir("./ui/static/"))
-
-    mux.Handle("/static/", http.StripPrefix("/static", fileServer))
-
-	log.Println("Starting server on :8000")
-	err := http.ListenAndServe(":8000", mux)
+    
+	godotenv.Load()
+	PORT := os.Getenv("PORT")
+	log.Println("Starting server on :"+PORT)
+	err := http.ListenAndServe(";"+PORT, mux)
 	log.Fatal(err)
 }
