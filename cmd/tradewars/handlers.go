@@ -47,3 +47,18 @@ func createSnippet(w http.ResponseWriter, r *http.Request) {
 
     w.Write([]byte("Create a new snippet..."))
 }
+
+func game(w http.ResponseWriter, r *http.Request) {
+    template.ParseFiles("./ui/html/game.page.tmpl")
+}
+
+func chat(w http.ResponseWriter, r *http.Request) {
+    template.ParseFiles("./ui/html/chat.page.tmpl")
+}
+
+func trade(w http.ResponseWriter, r *http.Request) {
+    template.ParseFiles("./ui/html/trade.page.tmpl")
+}
+
+
+
