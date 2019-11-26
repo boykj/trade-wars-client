@@ -1,9 +1,7 @@
 package main
 
 import (
-    "fmt"        
     "net/http"
-    "strconv"
     "log"
     "html/template"
 )
@@ -26,6 +24,14 @@ func home(w http.ResponseWriter, r *http.Request) {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
     }
+    callsign := r.Form.Get("callsign")
+
+        cookie := http.Cookie{
+            Name: "Callsign",
+            Value: callsign,
+            MaxAge: 60 * 60,
+        }
+        http.SetCookie(w, &cookie)
 }
 
 func game(w http.ResponseWriter, r *http.Request) {
