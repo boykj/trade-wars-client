@@ -7,8 +7,8 @@ import (
 )
 
 func players(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path != "/" {
-        http.NotFound(w, r)
+    if r.Method != http.MethodGet && r.Method != http.MethodPost {
+        http.Error(w, "Method Not Allowed", 405)
         return
     }
 
@@ -114,5 +114,8 @@ func players(w http.ResponseWriter, r *http.Request) {
     }
  }
 
-
-
+ func redirect(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == "/" {
+        http.Redirect(w, r, "/players", 303)
+    }
+}

@@ -13,19 +13,14 @@ func main() {
 	godotenv.Load()
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	http.HandleFunc("/", players)	
-	http.HandleFunc("/game/", game)
-	http.HandleFunc("/chat/", chat)
-	http.HandleFunc("/trade/", trade)
+	http.HandleFunc("/", redirect)	
+	http.HandleFunc("/players", players)
+	// http.HandleFunc("/game/", game)
+	// http.HandleFunc("/chat/", chat)
+	// http.HandleFunc("/trade/", trade)
 
 	http.ListenAndServe(":"+PORT, nil)
 
 	// err := http.ListenAndServe(":"+PORT, nil)
 	// log.Fatal(err)
-}
-
-func redirect(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path == "/" {
-        http.Redirect(w, r, "/players", 303)
-    }
 }
