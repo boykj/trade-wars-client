@@ -9,18 +9,19 @@ import (
 
 func main() {
 
-	// mux := http.NewServeMux()
 	godotenv.Load()
+
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", redirect)	
+	mux.HandleFunc("/players", playersHandler)
+	mux.HandleFunc("/map", mapHandler)
+
+	fileServer := http.FileServer(http.Dir(".ui/static"))
+	mux.Handle("/static", http.StripPrefix("/static", fileServer))
+
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	http.HandleFunc("/", redirect)	
-	http.HandleFunc("/players", playersHandler)
-	http.HandleFunc("/map", mapHandler)
-	// http.HandleFunc("/chat/", chat)
-	// http.HandleFunc("/trade/", trade)
-
-	http.ListenAndServe(":"+PORT, nil)
-
+	http.ListenAndServe(":"+PORT, mux)
 	// err := http.ListenAndServe(":"+PORT, nil)
 	// log.Fatal(err)
 }
