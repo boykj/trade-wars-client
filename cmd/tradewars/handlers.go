@@ -13,6 +13,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
+    // GET Method 
     if r.Method==http.MethodGet{
         files := []string{
             "./ui/html/home.page.tmpl",
@@ -31,6 +32,8 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
         }
+        
+    // POST Method
     } else if r.Method==http.MethodPost {
         err := r.ParseForm()
         if err != nil {
