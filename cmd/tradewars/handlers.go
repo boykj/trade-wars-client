@@ -4,6 +4,7 @@ import (
     "net/http"
     "log"
     "html/template"
+    "time"
 )
 
 func playersHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,9 +40,12 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         }
         callsign := r.Form.Get("callsign")
         cookie := http.Cookie{
-            Name: "Callsign",
+            Name: "callsign",
             Value: callsign,
-            MaxAge: 60 * 60,
+            // MaxAge: 60 * 60, // For usage without time import
+            Expires: time.Now().AddDate(0, 0, 1),
+            Path: "/",
+
         }
         http.SetCookie(w, &cookie)
 
