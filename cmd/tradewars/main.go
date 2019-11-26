@@ -8,15 +8,17 @@ import (
 )
 
 func main() {
-	// mux := http.NewServeMux()
+	
+	mux := http.NewServeMux()
 	godotenv.Load()
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
+
 	http.HandleFunc("/", home)
 	http.HandleFunc("/game/", game)
 	http.HandleFunc("/chat/", chat)
 	http.HandleFunc("/trade/", trade)
-	http.ListenAndServe(":"+PORT, nil)
-	// err := http.ListenAndServe(":"+PORT, nil)
-	// log.Fatal(err)
+
+	err := http.ListenAndServe(":"+PORT, nil)
+	log.Fatal(err)
 }
