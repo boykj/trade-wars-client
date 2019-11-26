@@ -35,6 +35,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         if err != nil {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
+            return
         }
         callsign := r.Form.Get("callsign")
         cookie := http.Cookie{
@@ -49,10 +50,14 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 }
 
  func mapHandler(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path != "/" {
-        http.NotFound(w, r)
+    var cookie, err = r.Cookie("callsign")
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
         return
     }
+    callsign := cookie.Value
+    log.Println("Welcome to Trade wars, " + callsign)
 
     files := []string{
         "./ui/html/game.page.tmpl",
