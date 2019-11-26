@@ -1,9 +1,9 @@
 package main
 
 import (
-    "fmt"        
+    //"fmt"        
     "net/http"
-    "strconv"
+    //"strconv"
     "log"
     "html/template"
 )
