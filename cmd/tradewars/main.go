@@ -14,8 +14,8 @@ func main() {
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
 	http.HandleFunc("/", redirect)	
-	http.HandleFunc("/players", players)
-	// http.HandleFunc("/game/", game)
+	http.HandleFunc("/players", playersHandler)
+	http.HandleFunc("/map", mapHandler)
 	// http.HandleFunc("/chat/", chat)
 	// http.HandleFunc("/trade/", trade)
 
