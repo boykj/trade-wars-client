@@ -20,6 +20,8 @@ https://lets-go.alexedwards.net/sample/02.00-foundations.html
 ### GO Web Formatting (TMPL)
 https://gowebexamples.com/templates/
 
+> git push heroku master
+
 
 
 

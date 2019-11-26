@@ -23,3 +23,9 @@ func main() {
 	// err := http.ListenAndServe(":"+PORT, nil)
 	// log.Fatal(err)
 }
+
+func redirect(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == "/" {
+        http.Redirect(w, r, "/players", 303)
+    }
+}
