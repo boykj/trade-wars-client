@@ -8,12 +8,14 @@ import (
 )
 
 func main() {
-	
+
 	mux := http.NewServeMux()
 	godotenv.Load()
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
 
+	mux.Handle("/", http.HandlerFunc(home))
+	
 	http.HandleFunc("/", home)
 	http.HandleFunc("/game/", game)
 	http.HandleFunc("/chat/", chat)
