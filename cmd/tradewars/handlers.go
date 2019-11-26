@@ -1,18 +1,23 @@
 package main
 
-import (
+import (     
     "net/http"
     "log"
     "html/template"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
+func index(w http.ResponseWriter, r *http.Request) {
     if r.URL.Path != "/" {
         http.NotFound(w, r)
         return
     }
 
-    ts, err := template.ParseFiles("./ui/html/home.page.tmpl")
+    files := []string{
+        "./ui/html/home.page.tmpl",
+        "./ui/html/base.layout.tmpl",
+    }
+
+    ts, err := template.ParseFiles(files...)
     if err != nil {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
@@ -34,17 +39,80 @@ func home(w http.ResponseWriter, r *http.Request) {
         http.SetCookie(w, &cookie)
 }
 
-func game(w http.ResponseWriter, r *http.Request) {
-    template.ParseFiles("./ui/html/game.page.tmpl")
-}
+ func game(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path != "/" {
+        http.NotFound(w, r)
+        return
+    }
 
-func chat(w http.ResponseWriter, r *http.Request) {
-    template.ParseFiles("./ui/html/chat.page.tmpl")
-}
+    files := []string{
+        "./ui/html/game.page.tmpl",
+        "./ui/html/base.layout.tmpl",
+    }
 
-func trade(w http.ResponseWriter, r *http.Request) {
-    template.ParseFiles("./ui/html/trade.page.tmpl")
-}
+    ts, err := template.ParseFiles(files...)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+    }
+
+    err = ts.Execute(w, nil)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+    }
+ }
+
+ func chat(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path != "/" {
+        http.NotFound(w, r)
+        return
+    }
+
+    files := []string{
+        "./ui/html/chat.page.tmpl",
+        "./ui/html/base.layout.tmpl",
+    }
+
+    ts, err := template.ParseFiles(files...)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+    }
+
+    err = ts.Execute(w, nil)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+    }
+ }
+
+ func trade(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path != "/" {
+        http.NotFound(w, r)
+        return
+    }
+
+    files := []string{
+        "./ui/html/trade.page.tmpl",
+        "./ui/html/base.layout.tmpl",
+    }
+
+    ts, err := template.ParseFiles(files...)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+    }
+
+    err = ts.Execute(w, nil)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+    }
+ }
 
 
 

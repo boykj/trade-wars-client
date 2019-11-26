@@ -12,7 +12,7 @@ func main() {
 	godotenv.Load()
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	http.HandleFunc("/", home)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/game/", game)
 	http.HandleFunc("/chat/", chat)
 	http.HandleFunc("/trade/", trade)
