@@ -9,8 +9,6 @@ import (
 
 func main() {
 
-	godotenv.Load()
-
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", redirect)	
 	mux.HandleFunc("/players", playersHandler)
@@ -19,9 +17,11 @@ func main() {
 	fileServer := http.FileServer(http.Dir(".ui/static"))
 	mux.Handle("/static", http.StripPrefix("/static", fileServer))
 
+	godotenv.Load()
+
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	http.ListenAndServe(":"+PORT, mux)
-	// err := http.ListenAndServe(":"+PORT, nil)
-	// log.Fatal(err)
+	//http.ListenAndServe(":"+PORT, mux)
+	err := http.ListenAndServe(":"+PORT, nil)
+	log.Fatal(err)
 }
