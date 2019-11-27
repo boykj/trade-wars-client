@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"os"
 	"github.com/joho/godotenv"
-	"github.com/boykj/trade-wars-client"
 )
 
 func main() {
