@@ -10,7 +10,7 @@ import (
 func main() {
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", redirect)	
+	mux.HandleFunc("/redirect", redirect)	
 	mux.HandleFunc("/players", playersHandler)
 	mux.HandleFunc("/map", mapHandler)
 

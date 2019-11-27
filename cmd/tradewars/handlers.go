@@ -1,6 +1,6 @@
 package main
 
-import (     
+import (    
     "net/http"
     "log"
     "html/template"
@@ -8,8 +8,8 @@ import (
 )
 
 func playersHandler(w http.ResponseWriter, r *http.Request) {
-    if r.Method != http.MethodGet && r.Method != http.MethodPost {
-        http.Error(w, "Method Not Allowed", 405)
+    if r.URL.Path != "/" {
+        http.NotFound(w, r)
         return
     }
 
@@ -35,8 +35,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         
     // POST Method
     } else if r.Method==http.MethodPost {
-        err := r.ParseForm()
-        if err != nil {
+        if err := r.ParseForm(); err != nil {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
             return
@@ -52,8 +51,14 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         }
         http.SetCookie(w, &cookie)
 
-        http.Redirect(w, r, "/map", 303)
+    } else {
+        http.Error(w, "Method Not Allowed", 405)
+        return
     }
+}
+
+func redirect() {
+    http.Redirect(w, r, "/map", 303)
 }
 
  func mapHandler(w http.ResponseWriter, r *http.Request) {
@@ -83,60 +88,61 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
     }
+    w.Write([]byte("Create a new map..."))
  }
 
- func chat(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path != "/" {
-        http.NotFound(w, r)
-        return
-    }
+//  func chat(w http.ResponseWriter, r *http.Request) {
+//     if r.URL.Path != "/" {
+//         http.NotFound(w, r)
+//         return
+//     }
 
-    files := []string{
-        "./ui/html/chat.page.tmpl",
-        "./ui/html/base.layout.tmpl",
-    }
+//     files := []string{
+//         "./ui/html/chat.page.tmpl",
+//         "./ui/html/base.layout.tmpl",
+//     }
 
-    ts, err := template.ParseFiles(files...)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
+//     ts, err := template.ParseFiles(files...)
+//     if err != nil {
+//         log.Println(err.Error())
+//         http.Error(w, "Internal Server Error", 500)
+//         return
+//     }
 
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
- }
+//     err = ts.Execute(w, nil)
+//     if err != nil {
+//         log.Println(err.Error())
+//         http.Error(w, "Internal Server Error", 500)
+//     }
+//  }
 
- func trade(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path != "/" {
-        http.NotFound(w, r)
-        return
-    }
+//  func trade(w http.ResponseWriter, r *http.Request) {
+//     if r.URL.Path != "/" {
+//         http.NotFound(w, r)
+//         return
+//     }
 
-    files := []string{
-        "./ui/html/trade.page.tmpl",
-        "./ui/html/base.layout.tmpl",
-    }
+//     files := []string{
+//         "./ui/html/trade.page.tmpl",
+//         "./ui/html/base.layout.tmpl",
+//     }
 
-    ts, err := template.ParseFiles(files...)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
+//     ts, err := template.ParseFiles(files...)
+//     if err != nil {
+//         log.Println(err.Error())
+//         http.Error(w, "Internal Server Error", 500)
+//         return
+//     }
 
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
- }
+//     err = ts.Execute(w, nil)
+//     if err != nil {
+//         log.Println(err.Error())
+//         http.Error(w, "Internal Server Error", 500)
+//     }
+//  }
 
- func redirect(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path == "/" {
-        http.Redirect(w, r, "/players", 303)
-    }
-}
+//  func redirect(w http.ResponseWriter, r *http.Request) {
+//     if r.URL.Path == "/" {
+//         http.Redirect(w, r, "/players", 303)
+//     }
+// }
