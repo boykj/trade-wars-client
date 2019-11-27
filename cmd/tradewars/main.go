@@ -10,12 +10,12 @@ import (
 func main() {
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", redirect)	
+	// mux.HandleFunc("/", redirect)	
 	mux.HandleFunc("/players", playersHandler)
 	mux.HandleFunc("/map", mapHandler)
 
-	fileServer := http.FileServer(http.Dir(".ui/static"))
-	mux.Handle("/static", http.StripPrefix("/static", fileServer))
+	// fileServer := http.FileServer(http.Dir(".ui/static"))
+	// mux.Handle("/static", http.StripPrefix("/static", fileServer))
 
 	godotenv.Load()
 
