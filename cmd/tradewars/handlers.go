@@ -57,7 +57,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func redirect() {
+func redirect(w http.ResponseWriter, r *http.Request) {
     http.Redirect(w, r, "/map", 303)
 }
 
