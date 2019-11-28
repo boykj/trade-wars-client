@@ -21,7 +21,6 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         }
 
         ts, err := template.ParseFiles(files...)
-        http.ServeFile(w, r, ts)
 
         if err != nil {
             log.Println(err.Error())
