@@ -21,7 +21,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         }
 
         ts, err := template.ParseFiles(files...)
-        
+
         if err != nil {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
@@ -33,8 +33,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
         }
-
-
+    }
         
     // POST Method
     } else if r.Method==http.MethodPost {
