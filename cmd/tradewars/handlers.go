@@ -4,7 +4,7 @@ import (
     "net/http"
     "log"
     "html/template"
-    // "time"
+    "time"
 )
 
 func playersHandler(w http.ResponseWriter, r *http.Request) {
