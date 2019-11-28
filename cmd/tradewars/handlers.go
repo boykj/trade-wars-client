@@ -14,7 +14,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
     }
 
     // GET Method 
-    if r.Method==http.MethodGet{
+    // if r.Method==http.MethodGet{
         files := []string{
             "./ui/html/home.page.tmpl",
             "./ui/html/base.layout.tmpl",
@@ -35,27 +35,27 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         }
         
     // POST Method
-    } else if r.Method==http.MethodPost {
-        if err := r.ParseForm(); err != nil {
-            log.Println(err.Error())
-            http.Error(w, "Internal Server Error", 500)
-            return
-        }
-        callsign := r.Form.Get("callsign")
-        cookie := http.Cookie{
-            Name: "callsign",
-            Value: callsign,
-            // MaxAge: 60 * 60, // For usage without time import
-            Expires: time.Now().AddDate(0, 0, 1),
-            Path: "/",
+    // } else if r.Method==http.MethodPost {
+    //     if err := r.ParseForm(); err != nil {
+    //         log.Println(err.Error())
+    //         http.Error(w, "Internal Server Error", 500)
+    //         return
+    //     }
+    //     callsign := r.Form.Get("callsign")
+    //     cookie := http.Cookie{
+    //         Name: "callsign",
+    //         Value: callsign,
+    //         // MaxAge: 60 * 60, // For usage without time import
+    //         Expires: time.Now().AddDate(0, 0, 1),
+    //         Path: "/",
 
-        }
-        http.SetCookie(w, &cookie)
+    //     }
+    //     http.SetCookie(w, &cookie)
 
-    } else {
-        http.Error(w, "Method Not Allowed", 405)
-        return
-    }
+    // } else {
+    //     http.Error(w, "Method Not Allowed", 405)
+    //     return
+    // }
 }
 
 func redirect(w http.ResponseWriter, r *http.Request) {
