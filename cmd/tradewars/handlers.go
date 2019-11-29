@@ -28,7 +28,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
             return
         }
 
-        err = ts.Execute(w, home.page, nil)
+        err = ts.Execute(w, "ui/html/home.page.tmpl")
         if err != nil {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
