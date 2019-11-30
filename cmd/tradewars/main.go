@@ -21,7 +21,6 @@ func main() {
 
 	PORT := os.Getenv("PORT")
 	log.Println("Starting server on :"+PORT)
-	//http.ListenAndServe(":"+PORT, mux)
-	err := http.ListenAndServe(":"+PORT, nil)
+	err := http.ListenAndServe(":"+PORT, mux)
 	log.Fatal(err)
 }
