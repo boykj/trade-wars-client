@@ -40,17 +40,17 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
             log.Println(err.Error())
             http.Error(w, "Internal Server Error", 500)
             return
-        }
+        
+    }
         callsign := r.Form.Get("callsign")
-        cookie := http.Cookie{
+        cookie := http.Cookie {
             Name: "callsign",
             Value: callsign,
-            // MaxAge: 60 * 60, // For usage without time import
             Expires: time.Now().AddDate(0, 0, 1),
             Path: "/",
-
         }
         http.SetCookie(w, &cookie)
+        http.Redirect(w, r, "/map", http.StatusSeeOther)
 
     } else {
         http.Error(w, "Method Not Allowed", 405)
@@ -58,19 +58,20 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func redirect(w http.ResponseWriter, r *http.Request) {
-    http.Redirect(w, r, "/map", 303)
-}
+// func redirect(w http.ResponseWriter, r *http.Request) {
+//     http.Redirect(w, r, "/map", 303)
+// }
 
  func mapHandler(w http.ResponseWriter, r *http.Request) {
     var cookie, err = r.Cookie("callsign")
     if err != nil {
         log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
+        http.Error(w, "Internal Server Error || Cookie callsign not resolved", 500)
         return
     }
     callsign := cookie.Value
     log.Println("Welcome to Trade wars, " + callsign)
+    w.Write([]byte(callsign))
 
     files := []string{
         "./ui/html/game.page.tmpl",
@@ -89,7 +90,7 @@ func redirect(w http.ResponseWriter, r *http.Request) {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
     }
-    w.Write([]byte("Create a new map..."))
+    // w.Write([]byte("Create a new map..."))
  }
 
 //  func chat(w http.ResponseWriter, r *http.Request) {
@@ -142,8 +143,8 @@ func redirect(w http.ResponseWriter, r *http.Request) {
 //     }
 //  }
 
-//  func redirect(w http.ResponseWriter, r *http.Request) {
-//     if r.URL.Path == "/" {
-//         http.Redirect(w, r, "/players", 303)
-//     }
-// }
+ func redirect(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == "/" {
+        http.Redirect(w, r, "/players", 303)
+    }
+}

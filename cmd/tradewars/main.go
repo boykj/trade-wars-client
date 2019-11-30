@@ -11,7 +11,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.Handle("/", http.HandlerFunc(playersHandler))
-	mux.Handle("/redirect", http.HandlerFunc(redirect))	
+	mux.Handle("/players", http.HandlerFunc(redirect))
 	mux.Handle("/map", http.HandlerFunc(mapHandler))
 
 	fileServer := http.FileServer(http.Dir(".ui/static"))
