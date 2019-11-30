@@ -1,1 +1,0 @@
-tradewars: bin/tradewars
