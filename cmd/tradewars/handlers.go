@@ -3,6 +3,7 @@ package main
 import (    
     "net/http"
     "log"
+    
     "html/template"
     "time"
 )
@@ -36,12 +37,14 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
         
     // POST Method
     } else if r.Method==http.MethodPost {
-        if err := r.ParseForm(); err != nil {
-            log.Println(err.Error())
-            http.Error(w, "Internal Server Error", 500)
-            return
+        err := r.ParseForm()
+            if err != nil {
+                log.Println(err.Error())
+                http.Error(w, "Internal Server Error", 500)
+                return
         
     }
+
         callsign := r.Form.Get("callsign")
         cookie := http.Cookie {
             Name: "callsign",
@@ -73,23 +76,23 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
     log.Println("Welcome to Trade wars, " + callsign)
     w.Write([]byte(callsign))
 
-    files := []string{
-        "./ui/html/game.page.tmpl",
-        "./ui/html/base.layout.tmpl",
-    }
+    // files := []string{
+    //     "./ui/html/game.page.tmpl",
+    //     "./ui/html/base.layout.tmpl",
+    // }
 
-    ts, err := template.ParseFiles(files...)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
+    // ts, err := template.ParseFiles(files...)
+    // if err != nil {
+    //     log.Println(err.Error())
+    //     http.Error(w, "Internal Server Error", 500)
+    //     return
+    // }
 
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+    // err = ts.Execute(w, nil)
+    // if err != nil {
+    //     log.Println(err.Error())
+    //     http.Error(w, "Internal Server Error", 500)
+    // }
     // w.Write([]byte("Create a new map..."))
  }
 
