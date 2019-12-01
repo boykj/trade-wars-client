@@ -34,7 +34,7 @@ func home(w http.ResponseWriter, r *http.Request){
     }
 }
 
-func playersHandler(w http.ResponseWriter, r *http.Request) {
+func playerHandler(w http.ResponseWriter, r *http.Request) {
     
     if r.Method==http.MethodPost {
         err := r.ParseForm()
