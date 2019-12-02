@@ -60,19 +60,9 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
 }
 
  func mapHandler(w http.ResponseWriter, r *http.Request) {
-    var cookie, err = r.Cookie("callsign")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error || Cookie callsign not resolved", 500)
-        return
-    }
-    callsign := cookie.Value
-    log.Println("Welcome to Trade wars, " + callsign)
-    w.Write([]byte(callsign))
-
     files := []string{
-        "./ui/html/game.page.tmpl",
-        "./ui/html/base.layout.tmpl",
+    "./ui/html/game.page.tmpl",
+    "./ui/html/base.layout.tmpl",
     }
 
     ts, err := template.ParseFiles(files...)
@@ -87,7 +77,16 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
     }
-    w.Write([]byte("Create a new map..."))
+    var cookie, errC = r.Cookie("callsign")
+    if errC != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error || Cookie callsign not resolved", 500)
+        return
+    }
+    callsign := cookie.Value
+    
+    w.Write([]byte("Welcome to Trade wars, " + callsign))
+    w.Write([]byte(" Create a new map..."))
  }
 
 //  func chat(w http.ResponseWriter, r *http.Request) {
