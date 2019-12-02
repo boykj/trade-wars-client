@@ -3,11 +3,11 @@
 {{define "title"}}Home{{end}}
 
   {{define "main"}}
+    <background-image: url(https://wallpapers.gry-online.pl/pliki/66205/1920x1080.jpg);>
     <font color = "#C0C0C0">
       <h1 style="text-align:center;">Welcome to Trade Wars!</h1>
-        <fieldset>
-          <legend><b> Login </b></legend>
-            User name:<br>
+      <fieldset>
+        <legend style="text-align:center"><b> Login </b></legend>
     </font>
     <form action="/players" style="text-align:center" method="post" type="text" name="callsign">
     <input class="textbox" type="text-center" name="callsign">
@@ -15,6 +15,6 @@
       <br>
       <input type="submit" value="Play">
         </fieldset>
-          <br>
+        <br>
     </form>
   {{end}}
