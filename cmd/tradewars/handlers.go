@@ -117,7 +117,7 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         w.Write([]byte("Welcome to Trade wars Chat, " + callsign))
  }
 
- func trade(w http.ResponseWriter, r *http.Request) {
+ func tradeHandler(w http.ResponseWriter, r *http.Request) {
     files := []string{
         "./ui/html/trade.page.tmpl",
         "./ui/html/base.layout.tmpl",
