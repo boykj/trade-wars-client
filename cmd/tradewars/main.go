@@ -15,7 +15,8 @@ func main() {
 	mux.HandleFunc("/chat", chatHandler)
 	mux.HandleFunc("/trade", tradeHandler)
 	mux.HandleFunc("/map", mapHandler)
-	mux.HandleFunc("ws", handleConnections)
+	mux.HandleFunc("/ws", handleConnections)
+	//go handleMessages()
 
 	fileServer := http.FileServer(http.Dir("./ui/static"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))

@@ -4,16 +4,23 @@
 	
 	{{define "main"}}
 	    <div style = "position:relative; left:20px; top:2px;">
-	      <h1>Trade Wars</h1>
-	      <p> Status Message </p>
-
+	      <h1>Trade Wars Chat </h1>
+    		<p> Status Message </p>
 	    	<font color = "#C0C0C0">
 	    	Chat Message: <br>
-	    	
-
 	    	<input type ="text" chat="message">
-	    	</div>
-	    	</font>
+	    	<table class = "map">
+	    		<tr>
+	    	</table>
+			</div>
 	  	</font>
+	        <div class="col s12">
+
+	            <div class="card horizontal">
+	                <div id="chat-messages" class="card-content" v-html="chatContent">
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 	{{end}}
 
