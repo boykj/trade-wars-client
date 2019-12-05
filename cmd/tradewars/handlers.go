@@ -153,3 +153,7 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         http.Redirect(w, r, "/players", 303)
     }
 }
+
+type Message struct {
+    Callsign string 'json:callsign'
+}
