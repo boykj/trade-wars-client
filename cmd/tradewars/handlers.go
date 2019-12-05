@@ -114,8 +114,10 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Internal Server Error || Cookie callsign not resolved", 500)
         return
     }
+    var clients = make(map[*websocket.Conn]bool)    //connected clients
+    var broadcast = make(chan Message) 
     callsign := cookie.Value
-        w.Write([]byte("Welcome to Trade wars Chat, " + callsign))
+    w.Write([]byte("Welcome to Trade wars Chat, " + callsign))
  }
 
  func tradeHandler(w http.ResponseWriter, r *http.Request) {
@@ -143,7 +145,7 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
     callsign := cookie.Value
-        w.Write([]byte("Welcome to Trade wars Trade Hub, " + callsign))
+    w.Write([]byte("Welcome to Trade wars Trade Hub, " + callsign))
  }
 
  func redirect(w http.ResponseWriter, r *http.Request) {
