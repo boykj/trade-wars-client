@@ -91,7 +91,6 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
     callsign := cookie.Value
     
     w.Write([]byte("Welcome to Trade wars, " + callsign))
-    w.Write([]byte(" Create a new map..."))
  }
 
  func chatHandler(w http.ResponseWriter, r *http.Request) {
