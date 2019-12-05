@@ -150,12 +150,6 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
     w.Write([]byte("Welcome to Trade wars Trade Hub, " + callsign))
  }
 
- func redirect(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path == "/" {
-        http.Redirect(w, r, "/players", 303)
-    }
-}
-
 type Message struct {
     email string "email"
 }
