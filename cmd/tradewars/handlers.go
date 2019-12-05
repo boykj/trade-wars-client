@@ -8,6 +8,10 @@ import (
     "github.com/gorilla/websocket"
 )
 
+var clients = make(map[*websocket.Conn]bool)    //connected caselients
+var broadcast = make(chan Message)              //brodcast channel
+var upgrader = websocket.Upgrader{}             // Configure the upgrader (for upgrading http connection to a websocket)
+
 func home(w http.ResponseWriter, r *http.Request){
     if r.URL.Path != "/" {
         http.NotFound(w, r)
@@ -114,8 +118,6 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Internal Server Error || Cookie callsign not resolved", 500)
         return
     }
-    var clients = make(map[*websocket.Conn]bool)    //connected clients
-    var broadcast = make(chan Message) 
     callsign := cookie.Value
     w.Write([]byte("Welcome to Trade wars Chat, " + callsign))
  }
@@ -155,5 +157,18 @@ func playerHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 type Message struct {
-    Callsign string 'json:callsign'
+    email string "email"
+}
+
+func handleConnections(w http.ResponseWriter, r *http.Request) {
+    ws, err := upgrader.Upgrade(w, r, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer ws.Close()
+    clients[ws] = true
+}
+
+func handleMessges() {
+
 }
